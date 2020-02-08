@@ -19,26 +19,26 @@ public class UrlLocaleResolver implements LocaleResolver {
         // ==> /SomeContextPath/en/...
         // ==> /SomeContextPath/fr/...
         // ==> /SomeContextPath/WEB-INF/pages/...
-        String uri = request.getRequestURI();
+//        String uri = request.getRequestURI();
 
-        System.out.println("URI=" + uri);
-
-        String prefixEn = request.getServletContext().getContextPath() + "/en/";
-        String prefixFr = request.getServletContext().getContextPath() + "/fr/";
-        String prefixVi = request.getServletContext().getContextPath() + "/vi/";
+//        System.out.println("URI=" + uri);
+// lay tu thanh URL
+//        String prefixEn = request.getServletContext().getContextPath() + "/en/";
+//        String prefixFr = request.getServletContext().getContextPath() + "/fr/";
+//        String prefixVi = request.getServletContext().getContextPath() + "/vi/";
 
         Locale locale = null;
-
+String uri=request.getHeader("Accept-Language");
         // English
-        if (uri.startsWith(prefixEn)) {
+        if (uri.startsWith("En")) {
             locale = Locale.ENGLISH;
         }
         // French
-        else if (uri.startsWith(prefixFr)) {
+        else if (uri.startsWith("Fr")) {
             locale = Locale.FRANCE;
         }
         // Vietnamese
-        else if (uri.startsWith(prefixVi)) {
+        else if (uri.startsWith("Vi")) {
             locale = new Locale("vi", "VN");
         }
         if (locale != null) {

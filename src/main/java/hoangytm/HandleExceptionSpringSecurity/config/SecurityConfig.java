@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthenticationEntryPoint authenticationEntryPoint;
 
-
     @Override
     @Bean
     @Primary
