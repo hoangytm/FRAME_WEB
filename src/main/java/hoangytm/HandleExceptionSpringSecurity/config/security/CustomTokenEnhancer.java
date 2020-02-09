@@ -1,4 +1,4 @@
-package hoangytm.HandleExceptionSpringSecurity.config;
+package hoangytm.HandleExceptionSpringSecurity.config.security;
 
 import hoangytm.HandleExceptionSpringSecurity.entity.User;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;

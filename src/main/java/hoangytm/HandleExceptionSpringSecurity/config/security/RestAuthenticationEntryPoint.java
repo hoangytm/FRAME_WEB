@@ -1,4 +1,4 @@
-package hoangytm.HandleExceptionSpringSecurity.config;
+package hoangytm.HandleExceptionSpringSecurity.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hoangytm.HandleExceptionSpringSecurity.entity.ApiResponse;

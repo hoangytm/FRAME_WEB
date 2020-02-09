@@ -1,4 +1,4 @@
-package hoangytm.HandleExceptionSpringSecurity.config;
+package hoangytm.HandleExceptionSpringSecurity.config.security;
 
 import hoangytm.HandleExceptionSpringSecurity.exception.RestAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;

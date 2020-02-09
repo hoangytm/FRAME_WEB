@@ -1,7 +1,5 @@
-package hoangytm.HandleExceptionSpringSecurity.config;
+package hoangytm.HandleExceptionSpringSecurity.config.security;
 
-import hoangytm.HandleExceptionSpringSecurity.service.UserService;
-import hoangytm.HandleExceptionSpringSecurity.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * @author PhanHoang
