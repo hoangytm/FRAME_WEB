@@ -3,9 +3,11 @@ package hoangytm.HandleExceptionSpringSecurity.controller;
 import hoangytm.HandleExceptionSpringSecurity.entity.ApiResponse;
 import hoangytm.HandleExceptionSpringSecurity.entity.User;
 import hoangytm.HandleExceptionSpringSecurity.i18n.Translator;
+import hoangytm.HandleExceptionSpringSecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,8 @@ public class UserController {
 
     @Autowired
     Translator translator;
+    @Autowired
+    UserService userService;
 
     @GetMapping("/test")
     public ResponseEntity<?> testApi() {
@@ -41,4 +45,10 @@ public class UserController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
+    @DeleteMapping("/rollback")
+    public ResponseEntity<?> rollBack() {
+        userService.deleteUser();
+        ApiResponse apiResponse = new ApiResponse();
+        return new ResponseEntity<>(apiResponse,HttpStatus.OK);
+    }
 }

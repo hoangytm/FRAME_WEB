@@ -1,13 +1,17 @@
 package hoangytm.HandleExceptionSpringSecurity.service;
 
 import hoangytm.HandleExceptionSpringSecurity.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+import javax.transaction.Transactional;
 
 /**
  * @author PhanHoang
- * 2/6/2020
+ * 2/10/2020
  */
-public interface UserService extends UserDetailsService {
-    User findUserByEmail(String email);
+@Service
+public interface UserService {
+void deleteUser();
 }

@@ -56,11 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable();
-//                .anonymous().disable()
-//                .authorizeRequests()
-//                .antMatchers("/oauth/token").permitAll()
-//                .antMatcher("/private/**").authorizeRequests();
+
         http.authorizeRequests().anyRequest().authenticated()
+//                .antMatchers("/fb/**").permitAll();
                 .and().exceptionHandling().accessDeniedHandler(restAccessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint).and()
         ;
 

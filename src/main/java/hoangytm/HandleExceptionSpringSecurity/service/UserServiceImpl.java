@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +26,7 @@ import java.util.Set;
 
 @Service("userDetailsService")
 @Primary
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
@@ -55,5 +57,13 @@ public class UserServiceImpl implements UserDetailsService {
 
         }
         return authorities;
+    }
+
+    @Override
+    @Transactional(rollbackOn = RuntimeException.class)
+    public void deleteUser() {
+        userRepo.deleteUserByEmail("hoang2");
+        System.out.println("SUCCESS");
+//        throw new RuntimeException();
     }
 }
