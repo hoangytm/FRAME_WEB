@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.PermitAll;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/fb")
+
 public class FacebookController {
 
     @Autowired
@@ -22,8 +24,10 @@ public class FacebookController {
     public String FacebookGenerateUrl() {
         return facebookService.facebookGenerateUrl();
     }
+
     @GetMapping("/welcome")
-    public  List<String> welcome(){
+    @PreAuthorize("permitAll()")
+    public List<String> welcome() {
         List<String> urls = new ArrayList<>();
         urls.add("http://localhost:8080/fb/facebookGenerateUrl");
         urls.add("http://localhost:8080/fb/getUserData");
@@ -32,13 +36,13 @@ public class FacebookController {
 
     @GetMapping("/facebook")
 //@PreAuthorize("hasRole('ADMIN')")
-    public void generateFacebookAccessToken(@RequestParam(defaultValue = "code") String code) {
-        facebookService.generateFacebookAccessToken(code);
+    public String generateFacebookAccessToken(@RequestParam(defaultValue = "code") String code) {
+        return facebookService.generateFacebookAccessToken(code);
     }
 
     @GetMapping("/getUserData")
     public String getUserData(@RequestParam String accessToken) {
-       return facebookService.getUserData(accessToken);
+        return facebookService.getUserData(accessToken);
     }
 
 }

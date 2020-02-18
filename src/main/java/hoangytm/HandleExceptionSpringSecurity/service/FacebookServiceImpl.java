@@ -30,10 +30,11 @@ public class FacebookServiceImpl implements FacebookService {
     }
 
     @Override
-    public void generateFacebookAccessToken(String code) {
+    public String generateFacebookAccessToken(String code) {
         accessToken = createConnection().getOAuthOperations()
                 .exchangeForAccess(code, "http://localhost:8080/fb/facebook", null)
                 .getAccessToken();
+        return accessToken;
     }
 
     @Override

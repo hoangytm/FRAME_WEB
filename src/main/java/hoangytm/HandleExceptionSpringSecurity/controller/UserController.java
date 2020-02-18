@@ -5,6 +5,7 @@ import hoangytm.HandleExceptionSpringSecurity.entity.User;
 import hoangytm.HandleExceptionSpringSecurity.i18n.Translator;
 import hoangytm.HandleExceptionSpringSecurity.service.UserService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("test-cache")
-    @ApiOperation(value = "test cache", response = ApiResponse .class)
+    @ApiOperation(value = "test cache",authorizations = {@Authorization(value = "Bearer")},response = ApiResponse .class)
     @CacheResult(cacheName = "people")
     public ResponseEntity<?> testCache() throws InterruptedException {
         ApiResponse apiResponse = new ApiResponse();
