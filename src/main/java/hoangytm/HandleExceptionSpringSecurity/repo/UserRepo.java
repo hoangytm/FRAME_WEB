@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface UserRepo extends JpaRepository<User,Long> {
-    public  User findUserByEmail(String email);
-    public void deleteUserByEmail(String email);
+      User findUserByEmail(String email);
+     void deleteUserByEmail(String email);
 
 }
