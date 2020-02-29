@@ -2,8 +2,8 @@ package hoangytm.HandleExceptionSpringSecurity.service;
 
 import hoangytm.HandleExceptionSpringSecurity.entity.Role;
 import hoangytm.HandleExceptionSpringSecurity.entity.User;
+import hoangytm.HandleExceptionSpringSecurity.i18n.Interceptor;
 import hoangytm.HandleExceptionSpringSecurity.repo.RoleRepo;
-import hoangytm.HandleExceptionSpringSecurity.repo.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
-    private UserRepo userRepo;
+    private Interceptor.UserRepo userRepo;
 
     @Autowired
     private RoleRepo roleRepo;

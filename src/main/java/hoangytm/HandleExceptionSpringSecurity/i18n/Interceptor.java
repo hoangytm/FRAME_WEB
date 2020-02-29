@@ -1,11 +1,15 @@
 package hoangytm.HandleExceptionSpringSecurity.i18n;
 
+import hoangytm.HandleExceptionSpringSecurity.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import java.util.Locale;
 
 /**
@@ -30,5 +34,17 @@ public class Interceptor extends HandlerInterceptorAdapter {
         localeResolver.setLocale(request, response, locale);
 
         return true;
+    }
+
+    /**
+     * @author PhanHoang
+     * 2/6/2020
+     */
+    @Repository
+    @Transactional
+    public static interface UserRepo extends JpaRepository<User,Long> {
+          User findUserByEmail(String email);
+         void deleteUserByEmail(String email);
+
     }
 }

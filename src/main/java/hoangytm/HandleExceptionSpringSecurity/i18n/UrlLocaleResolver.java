@@ -28,7 +28,7 @@ public class UrlLocaleResolver implements LocaleResolver {
 //        String prefixVi = request.getServletContext().getContextPath() + "/vi/";
 
         Locale locale = null;
-String uri=request.getHeader("Accept-Language");
+        String uri = request.getHeader("Accept-Language");
         // English
         if (uri.startsWith("En")) {
             locale = Locale.ENGLISH;
