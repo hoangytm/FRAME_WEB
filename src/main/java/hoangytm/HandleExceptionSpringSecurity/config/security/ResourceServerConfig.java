@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 /**
  * @author PhanHoang
@@ -35,7 +36,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.
                 anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/private/**").permitAll()
+                .antMatchers("/private/**","/user/activation/**").permitAll()
 //                .antMatchers("/private/**").access("hasRole('ADMIN')")
 
                 .antMatchers("**/fb/**","/spring-security-rest/**","**/swagger-ui.html").permitAll();

@@ -1,7 +1,8 @@
 package hoangytm.HandleExceptionSpringSecurity.utils;
 
 import hoangytm.HandleExceptionSpringSecurity.entity.User;
-import hoangytm.HandleExceptionSpringSecurity.i18n.Interceptor;
+
+import hoangytm.HandleExceptionSpringSecurity.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class CreateData {
     @Autowired
-    Interceptor.UserRepo userRepo;
+    UserRepo userRepo;
 
     // fake 1000 user then save into database
     public String fakeData() {

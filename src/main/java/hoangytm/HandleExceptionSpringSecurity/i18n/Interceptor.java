@@ -36,15 +36,5 @@ public class Interceptor extends HandlerInterceptorAdapter {
         return true;
     }
 
-    /**
-     * @author PhanHoang
-     * 2/6/2020
-     */
-    @Repository
-    @Transactional
-    public static interface UserRepo extends JpaRepository<User,Long> {
-          User findUserByEmail(String email);
-         void deleteUserByEmail(String email);
 
-    }
 }

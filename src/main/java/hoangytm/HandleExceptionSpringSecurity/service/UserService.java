@@ -11,7 +11,10 @@ import javax.transaction.Transactional;
  * @author PhanHoang
  * 2/10/2020
  */
-@Service
+
 public interface UserService {
 void deleteUser();
+User findUserByEmail(String email);
+void updateUser(User user);
+User findUserById(Long id);
 }

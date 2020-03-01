@@ -65,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers("**/swagger-ui.html/**","**/fb/**").permitAll()
+                .antMatchers("**/swagger-ui.html/**","**/fb/**","/user/activation/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().accessDeniedHandler(restAccessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint).and()
         ;
