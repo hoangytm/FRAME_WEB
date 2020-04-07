@@ -19,8 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -99,7 +99,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public User findUserById(Long id) {
+
         User user = userRepo.findUserById(id);
+
         return user;
     }
 }

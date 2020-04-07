@@ -42,6 +42,7 @@ public class FacebookServiceImpl implements FacebookService {
         Facebook facebook = new FacebookTemplate(accessToken);
         String[] fields = {"id", "first_name", "name", "email", "birthday", "gender", "age_range"
                 , "hometown", "inspirational_people"};
-        return facebook.fetchObject("me", String.class, fields);
+        String a=  facebook.fetchObject("me", String.class, fields);
+        return a;
     }
 }

@@ -16,10 +16,11 @@ import javax.transaction.Transactional;
  * 2/6/2020
  */
 
-public interface UserRepo extends JpaRepository<User,Long> {
+public interface UserRepo extends JpaRepository<User, Long> {
     User findUserByEmail(String email);
-    void deleteUserByEmail(String email);
-    User findUserById(Long id);
 
+    void deleteUserByEmail(String email);
+
+    User findUserById(Long id);
 
 }

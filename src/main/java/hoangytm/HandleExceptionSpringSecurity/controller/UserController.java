@@ -81,5 +81,10 @@ public class UserController {
         userService.updateUser(user);
         return new ApiResponse(200, "your account is activated");
     }
+    @PatchMapping("test-patch/{id}")
+    public String testPatch(@RequestBody User user,@PathVariable Long id){
+        userService.updateUser(user);
+        return "success";
+    }
 
 }
